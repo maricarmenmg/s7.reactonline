@@ -9,13 +9,17 @@ const services = [
     price: 500,
     icon: SwatchIcon,
     checked: false,
+    numberOfPages: 'Número de páginas',
+    numberOfLanguages: 'Número de idiomas',
   },
+ 
   {
     name: 'Campaña SEO',
     price: 300,
     icon: AcademicCapIcon,
     checked: false,
   },
+
   {
     name: 'Campaña de publicidad',
     price: 200,
@@ -81,9 +85,9 @@ function Panel({ handlePageChange, handleLanguageChange, showPanel }) {
 function BudgetForm() {
   const [servicesData, setServicesData] = useState(services);
   const [totalPrice, setTotalPrice] = useState(0);
-  const [showPanel, setShowPanel] = useState(false);
   const [pages, setPages] = useState(0);
   const [languages, setLanguages] = useState(0);
+  const [showPanel, setShowPanel] = useState(false);
 
   const handleCheckboxChange = (index) => {
     const updatedServicesData = [...servicesData];
@@ -108,16 +112,22 @@ function BudgetForm() {
 
     servicesData.forEach((service) => {
       if (service.checked) {
-        total += service.price;
 
-        if (service.name === 'Página web' && pages > 0 && languages > 0) {
-          total += pages * languages * 30;
+        total += service.price;
+  
+        if (service.numberOfPages === 'Número de páginas') {
+          total += pages * 30;
+        }
+  
+        if (service.numberOfLanguages === 'Número de idiomas') {
+          total += languages * 30;
         }
       }
     });
-
+  
     setTotalPrice(total);
   }, [servicesData, pages, languages]);
+
 
   return (
     <div className="overflow-hidden bg-white py-24 sm:py-32 mt-20">
@@ -134,7 +144,7 @@ function BudgetForm() {
               </p>
 
               {/* Budget Form */}
-              <dl className="p-6 mt-10 max-w-xl space-y-8 text-xl leading-7 text-gray-600 lg:max-w-none bg-white border border-gray-200 rounded-lg shadow">
+              <div className="p-6 mt-10 max-w-xl space-y-8 text-xl leading-7 text-gray-600 lg:max-w-none bg-white border border-gray-200 rounded-lg shadow">
                 {servicesData.map((service, index) => (
                   <div key={service.name} className="relative flex items-center">
                     <input
@@ -145,43 +155,17 @@ function BudgetForm() {
                       className="mr-4"
                     />
                     <service.icon className="h-5 w-5 text-indigo-600" aria-hidden="true" />
-                    <dt className="inline font-semibold text-gray-900 ml-2">{service.name}</dt>
-                    <dd className="inline font-bold ml-1">{service.price} €</dd>
+                    <div className="inline font-semibold text-gray-900 ml-2">{service.name}</div>
+                    <div className="inline font-bold ml-1">{service.price} €</div>
                   </div>
                 ))}
 
-                {showPanel && (
-                  <div className="mt-6">
-                    <div className="mb-4">
-                      <label htmlFor="pages" className="mr-2 font-semibold text-gray-900">
-                        Número de páginas:
-                      </label>
-                      <input
-                        type="number"
-                        id="pages"
-                        name="pages"
-                        min="0"
-                        value={pages}
-                        onChange={(e) => handlePageChange(parseInt(e.target.value, 10))}
-                        className="w-16 px-2 py-1 border border-gray-300 rounded-md"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="languages" className="mr-2 font-semibold text-gray-900">
-                        Número de idiomas:
-                      </label>
-                      <input
-                        type="number"
-                        id="languages"
-                        name="languages"
-                        min="0"
-                        value={languages}
-                        onChange={(e) => handleLanguageChange(parseInt(e.target.value, 10))}
-                        className="w-16 px-2 py-1 border border-gray-300 rounded-md"
-                      />
-                    </div>
-                  </div>
-                )}
+               {/* Budget Panel Pages Languages */}
+                <Panel
+                 handlePageChange={handlePageChange}
+                 handleLanguageChange={handleLanguageChange}
+                 showPanel={showPanel}
+                 />
 
                 {/* Budget Total */}
                 <div className="flex items-center justify-between border-t-2 border-gray-200 border-dotted pt-5">
@@ -189,12 +173,13 @@ function BudgetForm() {
                     Total: {totalPrice} €{' '}
                   </span>
                 </div>
-              </dl>
+              </div>
             </div>
           </div>
           <img src={HeroImage} className="md:max-w-none" width="384" height="459" alt="Hero Images" />
         </div>
       </div>
+
     </div>
   );
 }
