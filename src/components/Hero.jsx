@@ -15,14 +15,12 @@ function Hero() {
             {/* Content */}
             <div className="md:w-[640px]">
               {/* Copy */}
-              <h1 className="h1 font-poppins font-normal mb-6" data-aos="fade-right" data-aos-delay="100">
-              ¿Listo para comenzar un proyecto.{' '}
-                <span className="relative inline-flex text-secundary-400 font-poppins font-semibold">
-               con nosotros?
-                </span>
+              <h1 className="h1 font-normal mb-6" data-aos="fade-right" data-aos-delay="100">
+              ¿Listo para comenzar un proyecto.{' 🚀 '}
+
               </h1>
               <p className="text-xl text-gray-500 mb-10" data-aos="fade-right" data-aos-delay="200">
-                Our landing page template works on all devices, so you only have to set it up once, and get beautiful results forever.
+              Nuestro objetivo es ayudarte a construir una presencia digital efectiva para tu negocio.
               </p>
               {/* Buttons */}
               <div
@@ -31,20 +29,18 @@ function Hero() {
                 data-aos-delay="300"
               >
                 <div>
-                  <Link className="btn text-white bg-blue-500 hover:bg-blue-600 w-full shadow-sm" to="/budget">
-                    Join The Community
+                  <Link className="btn text-white bg-project-300 hover:bg-blue-600 w-full shadow-sm" to="/budget">
+                    Solicita tu presupuesto
                   </Link>
                 </div>
   
               </div>
-              {/* Stats */}
+   
               
             </div>
             {/* Image */}
             <div
-              className="max-w-sm mx-auto md:max-w-none md:absolute md:left-[40rem] md:ml-16 lg:ml-32 xl:ml-52 mt-12 md:-mt-12"
-              data-aos="fade-left"
-              data-aos-duration="1100"
+              className="max-w-sm mx-auto md:max-w-none md:absolute md:left-[40rem] md:ml-16 lg:ml-32 xl:ml-32 mt-12 md:-mt-12"
             >
               <img src={HeroImage} className="md:max-w-none" width="384" height="459" alt="Hero Images" />
             </div>

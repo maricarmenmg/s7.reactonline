@@ -3,56 +3,38 @@ import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <footer>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="py-8 md:py-12">
-          {/* Top area */}
-          <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between mb-12 md:mb-6">
-            <div className="shrink-0 mr-4">
-              {/* Logo */}
-              <Link className="inline-flex group mb-8 sm:mb-0" to="/" aria-label="Cruip">
-                <svg
-                  className="fill-blue-500 group-hover:fill-blue-600 transition duration-150 ease-in-out w-8 h-8"
-                  width="32"
-                  height="32"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="m7.799 4.47.325.434a19.264 19.264 0 0 0 4.518 4.204l.27.175-.013.257a17.638 17.638 0 0 1-.437 2.867l-.144.564a18.082 18.082 0 0 1-2.889 5.977c2.272.245 4.492.88 6.5 1.886 1.601.788 3.062 1.798 4.344 2.972l.142.135-.017.232a17.034 17.034 0 0 0 1.227 7.504l-.724.323c-1.555-2.931-4.113-5.287-7.19-6.632-3.075-1.351-6.602-1.622-9.857-.844-.822.194-1.532.094-2.146-.183a3.138 3.138 0 0 1-1.29-1.146l-.076-.133-.078-.154-.085-.201a2.893 2.893 0 0 1-.095-1.694c.174-.624.55-1.2 1.239-1.67 2.734-1.85 4.883-4.537 5.944-7.68.704-2.076.925-4.32.633-6.545l-.101-.647Zm4.674-.284.16.2a15.87 15.87 0 0 0 5.629 4.322c3.752 1.76 8.363 2.075 12.488.665.419-.14.78-.044 1.002.158l.106.12.066.11.026.063c.125.33.024.751-.4.994-3.404 1.905-5.92 5.05-6.98 8.573a13.967 13.967 0 0 0 .727 10.055l.241.484-.724.323c-.913-2.227-2.326-4.302-4.12-6.05l-.28-.262.026-.305a16.667 16.667 0 0 1 1.121-4.652l.206-.488c1.05-2.443 2.676-4.59 4.664-6.293-3.064.442-6.273.17-9.243-.858a19.036 19.036 0 0 1-4.072-1.93l-.204-.132.017-.322a18.337 18.337 0 0 0-.415-4.605l-.04-.17ZM10.957 0a18.125 18.125 0 0 1 1.424 3.792l.092.394-.174-.219A14.803 14.803 0 0 1 10.235.322L10.957 0ZM7.046 1.746c.277.725.494 1.463.653 2.206l.1.519-.012-.016a17.99 17.99 0 0 1-1.203-1.891l-.262-.495.724-.323Z" />
-                </svg>
-              </Link>
-            </div>
-            
-          </div>
-          {/* Bottom area */}
-          <div className="text-center md:flex md:items-center md:justify-between mb-8 md:mb-6">
-            {/* Social links */}
- 
-            {/* Left links */}
-            <div className="text-sm font-medium md:order-1 space-x-6 mb-2 md:mb-0">
-              <a className="text-gray-500 decoration-blue-500 decoration-2 underline-offset-2 hover:underline" href="#0">
-                About
-              </a>
-              <a className="text-gray-500 decoration-blue-500 decoration-2 underline-offset-2 hover:underline" href="#0">
-                Get in touch
-              </a>
-              <a className="text-gray-500 decoration-blue-500 decoration-2 underline-offset-2 hover:underline" href="#0">
-                Privacy &amp; Terms
-              </a>
-            </div>
-          </div>
-          {/* Bottom notes */}
-          <div className="text-xs text-gray-400 text-center md:text-left">
-            Some of our posts may contain affiliate links to partner brands. We earn a small commission if you click the link and make a purchase.
-            There is no extra cost to you, so it's just a nice way to help support the site. All images, videos, and other content posted on the site
-            is attributed to their creators and original sources. If you see something wrong here or you would like to have it removed, please{' '}
-            <a className="font-medium text-blue-500 decoration-blue-500 underline-offset-2 hover:underline" href="#0">
-              contact us
-            </a>
-            .
-          </div>
-        </div>
-      </div>
-    </footer>
+    
+ <footer className="p-4 bg-gray-100 md:p-8 lg:p-10 dark:bg-gray-800">
+  <div className="mx-auto max-w-screen-xl text-center">
+  {/* Logo */}
+  <Link className="flex justify-center items-center text-2xl font-semibold text-gray-900 dark:text-white" to="/" aria-label="logo">
+     
+      <svg width="60" height="60" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M109.468 183C63.9221 183 27 146.449 27 101.36C27 56.2722 63.9221 19.721 109.468 19.721L113.303 19.721C116.739 19.721 119.525 22.5067 119.525 25.9432L119.525 53.3229C119.525 56.7593 116.739 59.5451 113.303 59.5451L109.468 59.5451C86.1395 59.5451 67.2282 78.2665 67.2282 101.36C67.2282 124.454 86.1395 143.176 109.468 143.176L113.303 143.176C116.739 143.176 119.525 145.962 119.525 149.398L119.525 176.778C119.525 180.214 116.739 183 113.303 183L109.468 183Z" fill="#CBE358"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M173.952 176.778C173.952 180.214 171.166 183 167.729 183L139.354 183C135.918 183 133.132 180.214 133.132 176.778L133.132 148.402C133.132 144.966 135.918 142.18 139.354 142.18L167.729 142.18C171.166 142.18 173.952 144.966 173.952 148.402L173.952 176.778Z" fill="#282828"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M139.354 114.967C135.917 114.967 133.131 112.182 133.131 108.745L133.131 23.2222C133.131 19.7858 135.917 17 139.354 17L167.729 17C171.165 17 173.951 19.7858 173.951 23.2222L173.951 108.745C173.951 112.182 171.165 114.967 167.729 114.967L139.354 114.967Z" fill="#CBE358"/>
+</svg>
+</Link>
+
+      <p className=" text-center my-6 text-gray-500 dark:text-gray-400">Nos apasiona crear soluciones innovadoras.</p>
+      <ul className="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
+          <li>
+              <a href="#" className="mr-4 hover:underline md:mr-6 ">About</a>
+          </li>
+          <li>
+              <a href="#" class="mr-4 hover:underline md:mr-6">Premium</a>
+          </li>
+          <li>
+              <a href="#" class="mr-4 hover:underline md:mr-6 ">Campaigns</a>
+          </li>
+          <li>
+              <a href="#" class="mr-4 hover:underline md:mr-6">Blog</a>
+          </li>
+  
+      </ul>
+      <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="#" class="hover:underline">@mcarmenmg</a>.</span>
+  </div>
+</footer>
   );
 }
 

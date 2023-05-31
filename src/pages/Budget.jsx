@@ -1,18 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
+
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import BudgetForm from '../components/BudgetForm';
+
 
 
 function Budget() {
 
+  
   return (
 
-    <div className="flex flex-col justify-center items-center min-h-full bg-green-400">
-      <h1 className="text-xl2 text-gray-700 font-semibold mb-4 p-10">Hello Budget</h1>
-      <Link to="/">Go back to Home</Link>
+    <div className="flex flex-col min-h-screen overflow-hidden">
+      {/*  Site header */}
+      <Header />
+
+      {/*  Page content */}
+      <main className="grow">
+        {/*  Page sections */}
+        <BudgetForm/>
+      </main>
+
+      {/*  Site footer */}
+      <Footer />
     </div>
-
   );
-
 }
 
 export default Budget;

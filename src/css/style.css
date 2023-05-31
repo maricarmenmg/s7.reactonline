@@ -19,8 +19,19 @@
         direction: rtl;
     }
 }
+body{
+    background-color: #E4FE68;
+}
 p{
     font-family: "Sora", sans-serif;
     font-weight: 400;
     text-align:justify;
 }
+
+h1{
+    font-family: "Sora", sans-serif;
+    font-weight: 900;
+    font-size: 2.5rem;
+    line-height: 3rem;
+}
+
