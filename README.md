@@ -1,4 +1,4 @@
-# Sprint 7. React II (Budget)
+# Sprint 7. React II 
 
 ![Descripción](./src/images/readme/screenshot.png)
 
