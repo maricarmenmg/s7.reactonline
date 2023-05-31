@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { SwatchIcon, AcademicCapIcon, ServerStackIcon } from '@heroicons/react/24/solid';
+import { SwatchIcon,  ChartBarIcon , RectangleGroupIcon, MegaphoneIcon, LanguageIcon } from '@heroicons/react/24/solid';
 
-import HeroImage from '../images/hero/hero-image.png';
+import HeroImage from '../images/budget/budget-image.png';
 
 const services = [
   {
@@ -9,21 +9,21 @@ const services = [
     price: 500,
     icon: SwatchIcon,
     checked: false,
-    numberOfPages: 'Número de páginas',
+    numberOfPages: 'Número de páginas', 
     numberOfLanguages: 'Número de idiomas',
   },
  
   {
     name: 'Campaña SEO',
     price: 300,
-    icon: AcademicCapIcon,
+    icon: ChartBarIcon,
     checked: false,
   },
 
   {
     name: 'Campaña de publicidad',
     price: 200,
-    icon: ServerStackIcon,
+    icon: MegaphoneIcon ,
     checked: false,
   },
 ];
@@ -49,10 +49,10 @@ function Panel({ handlePageChange, handleLanguageChange, showPanel }) {
   }
 
   return (
-    <div className="mt-6">
-      <div className="mb-4">
-        <label htmlFor="pages" className="mr-2 font-semibold text-gray-900">
-          Número de páginas:
+    <div className="mt-6  rounded-lg shadow p-8 bg-project-100">
+      <div className="mb-4 ">
+        <label htmlFor="pages" className="mr-2 font-sora font-normal text-lg text-gray-900">
+         Número de páginas:
         </label>
         <input
           type="number"
@@ -66,7 +66,7 @@ function Panel({ handlePageChange, handleLanguageChange, showPanel }) {
       </div>
       <div>
         <label htmlFor="languages" className="mr-2 font-semibold text-gray-900">
-          Número de idiomas:
+         Número de idiomas:
         </label>
         <input
           type="number"
@@ -156,14 +156,14 @@ function BudgetForm() {
                     />
                     <service.icon className="h-5 w-5 text-indigo-600" aria-hidden="true" />
                     <div className="inline font-semibold text-gray-900 ml-2">{service.name}</div>
-                    <div className="inline font-bold ml-1">{service.price} €</div>
+                    <div className="inline text-gray-400 text-xl font-bold ml-1">{service.price} €</div>
                   </div>
                 ))}
 
                {/* Budget Panel Pages Languages */}
                 <Panel
                  handlePageChange={handlePageChange}
-                 handleLanguageChange={handleLanguageChange}
+                 handleLanguageChange={handleLanguageChange} 
                  showPanel={showPanel}
                  />
 
@@ -176,7 +176,7 @@ function BudgetForm() {
               </div>
             </div>
           </div>
-          <img src={HeroImage} className="md:max-w-none" width="384" height="459" alt="Hero Images" />
+          <img src={HeroImage} className="md:max-w-none" width="484" height="559" alt="Hero Images" />
         </div>
       </div>
 

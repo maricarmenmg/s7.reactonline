@@ -9,7 +9,7 @@ function Hero() {
       {/* Bg */}
       <div className="absolute inset-0 bg-project-100 pointer-events-none -z-10" aria-hidden="true" />
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="pt-32 pb-12 md:pt-40 md:pb-20">
+        <div className="pt-32 pb-12 md:pt-60 md:pb-20 ">
           {/* Hero content */}
           <div className="relative max-w-xl mx-auto md:max-w-none text-center md:text-left flex flex-col md:flex-row">
             {/* Content */}
