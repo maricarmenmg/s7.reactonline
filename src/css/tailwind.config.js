@@ -27,7 +27,6 @@ export default {
           600: '#0070F4',
           700: '#0064DA',
           800: '#0059C2',
-          900: '#FFC91F',
         },
         teal: {
           100: '#E6FFFA',
@@ -51,13 +50,17 @@ export default {
           '700': '#1d5d24',
           '800': '#15401d',
           '900': '#0f2717',
+          
         },
         project: {
           100: '#E4FE68',
-          200: '#303030',
-          300: '#0043ff',
-          400: '#f2f2f2',
-          500: '#D8F15F',
+          200: '#D8F15F',
+          300: '#CFE75D',
+          400: '#303030',
+          500: '#0043ff',
+          600: '#f2f2f2',
+          700: '#85953A',
+        
         },
       },
       boxShadow: {
@@ -71,6 +74,16 @@ export default {
         inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.04)',
         outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
         none: 'none',
+      },
+      borderRadius: {
+        'none': '0',
+        'sm': '0.125rem',
+        DEFAULT: '0.25rem',
+        DEFAULT: '4px',
+        'md': '0.375rem',
+        'lg': '0.5rem',
+        'full': '9999px',
+        'large': '12px',
       },
       spacing: {
         '9/16': '56.25%',

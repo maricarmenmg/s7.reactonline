@@ -29,7 +29,7 @@ function Hero() {
                 data-aos-delay="300"
               >
                 <div>
-                  <Link className="btn text-white bg-project-300 hover:bg-blue-600 w-full shadow-sm" to="/budget">
+                  <Link className="btn text-white bg-project-500 hover:bg-blue-600 w-full shadow-sm" to="/budget">
                     Solicita tu presupuesto
                   </Link>
                 </div>

@@ -19,7 +19,7 @@ function Footer() {
       <p className="font-sora text-2xl text-center my-6 text-gray-900 dark:text-gray-400">"Nos apasiona crear soluciones innovadoras"</p>
       <ul className="flex flex-wrap justify-center items-center mb-6 text-gray-900 dark:text-white">
           <li>
-              <a href="#" className="mr-4 hover:underline md:mr-6 ">About</a>
+
           </li>
           <li>
               <a href="#" class="mr-4 hover:underline md:mr-6">Premium</a>

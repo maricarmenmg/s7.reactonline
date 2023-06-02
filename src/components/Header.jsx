@@ -35,8 +35,8 @@ function Header() {
                 </Link>
               </li>
               <li className="ml-3">
-                <Link className="btn-sm text-white bg-project-300 hover:bg-blue-600 w-full shadow-sm" to="/form">
-                  Solicitar Presupuesto
+                <Link className="btn-sm font-sora text-project-400 bg-project-300 hover:bg-project-400 w-full shadow-sm" to="/">
+                  ¿Trabajamos juntos?
                 </Link>
               </li>
             </ul>

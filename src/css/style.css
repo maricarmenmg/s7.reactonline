@@ -35,3 +35,48 @@ h1{
     line-height: 3rem;
 }
 
+[type='checkbox'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  display: inline-block;
+  vertical-align: middle;
+  background-origin: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  flex-shrink: 0;
+  height: 1.5rem;
+  width: 1.5rem;
+  color: #0043ff;
+  background-color: #fff;
+  border-color: #e6e6e6;
+  border-width: 2px;
+  border-radius: 0.25rem;
+  --tw-shadow: 0 0 #0000;
+}
+
+
+
+/* Additional styles 
+
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+
+  .custom-number-input input:focus {
+    outline: none !important;
+    border-width: 0px;
+  }
+
+  .custom-number-input button:focus {
+    outline: none !important;
+    border-width: 0px;
+  } 
+*/

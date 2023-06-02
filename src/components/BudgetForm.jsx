@@ -1,94 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { SwatchIcon,  ChartBarIcon , RectangleGroupIcon, MegaphoneIcon, LanguageIcon } from '@heroicons/react/24/solid';
-
-import HeroImage from '../images/budget/budget-image.png';
-
-const services = [
-  {
-    name: 'Página web',
-    price: 500,
-    icon: SwatchIcon,
-    checked: false,
-    numberOfPages: 'Número de páginas', 
-    numberOfLanguages: 'Número de idiomas',
-  },
- 
-  {
-    name: 'Campaña SEO',
-    price: 300,
-    icon: ChartBarIcon,
-    checked: false,
-  },
-
-  {
-    name: 'Campaña de publicidad',
-    price: 200,
-    icon: MegaphoneIcon ,
-    checked: false,
-  },
-];
-
-function Panel({ handlePageChange, handleLanguageChange, showPanel }) {
-  const [pages, setPages] = useState(0);
-  const [languages, setLanguages] = useState(0);
-
-  const handlePagesChange = (e) => {
-    const value = parseInt(e.target.value, 10);
-    setPages(value);
-    handlePageChange(value);
-  };
-
-  const handleLanguagesChange = (e) => {
-    const value = parseInt(e.target.value, 10);
-    setLanguages(value);
-    handleLanguageChange(value);
-  };
-
-  if (!showPanel) {
-    return null;
-  }
-
-  return (
-    <div className="mt-6  rounded-lg shadow p-8 bg-project-100">
-      <div className="mb-4 ">
-        <label htmlFor="pages" className="mr-2 font-sora font-normal text-lg text-gray-900">
-         Número de páginas:
-        </label>
-        <input
-          type="number"
-          id="pages"
-          name="pages"
-          min="0"
-          value={pages}
-          onChange={handlePagesChange}
-          className="w-16 px-2 py-1 border border-gray-300 rounded-md"
-        />
-      </div>
-      <div>
-        <label htmlFor="languages" className="mr-2 font-semibold text-gray-900">
-         Número de idiomas:
-        </label>
-        <input
-          type="number"
-          id="languages"
-          name="languages"
-          min="0"
-          value={languages}
-          onChange={handleLanguagesChange}
-          className="w-16 px-2 py-1 border border-gray-300 rounded-md"
-        />
-      </div>
-    </div>
-  );
-}
+import services from '../data/services';
+import BudgetImage from '../images/budget/budget-image.png';
+import Panel  from './Panel';
 
 function BudgetForm() {
   const [servicesData, setServicesData] = useState(services);
-  const [totalPrice, setTotalPrice] = useState(0);
-  const [pages, setPages] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(1);
+  const [pages, setPages] = useState(1);
   const [languages, setLanguages] = useState(0);
   const [showPanel, setShowPanel] = useState(false);
 
+  
   const handleCheckboxChange = (index) => {
     const updatedServicesData = [...servicesData];
     updatedServicesData[index].checked = !updatedServicesData[index].checked;
@@ -135,13 +57,14 @@ function BudgetForm() {
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
           <div className="lg:pr-8 lg:pt-4">
             <div className="lg:max-w-lg">
-              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              <h3 className="mt-2 h3 font-bold tracking-tight text-gray-900 sm:text-4xl">
                 Solicita tu presupuesto
-              </p>
+              </h3>
               <p className="mt-6 text-lg leading-8 text-gray-600">
                 No dudes en ponerte en contacto con nosotros hoy mismo para explorar cómo podemos ayudarte a llevar tu
                 presencia online al siguiente nivel!
               </p>
+
 
               {/* Budget Form */}
               <div className="p-6 mt-10 max-w-xl space-y-8 text-xl leading-7 text-gray-600 lg:max-w-none bg-white border border-gray-200 rounded-lg shadow">
@@ -152,15 +75,15 @@ function BudgetForm() {
                       name={service.name}
                       checked={service.checked}
                       onChange={() => handleCheckboxChange(index)}
-                      className="mr-4"
+                      className="mr-4 font-sora"
                     />
                     <service.icon className="h-5 w-5 text-indigo-600" aria-hidden="true" />
-                    <div className="inline font-semibold text-gray-900 ml-2">{service.name}</div>
-                    <div className="inline text-gray-400 text-xl font-bold ml-1">{service.price} €</div>
+                    <div className="inline font-semibold font-sora text-gray-900 ml-2">{service.name}</div>
+                    <div className="inline text-gray-400 text-lg font-sora font-bold ml-1">{service.price} €</div>
                   </div>
                 ))}
 
-               {/* Budget Panel Pages Languages */}
+               {/* Budget Panel Pages - Languages */}
                 <Panel
                  handlePageChange={handlePageChange}
                  handleLanguageChange={handleLanguageChange} 
@@ -169,14 +92,14 @@ function BudgetForm() {
 
                 {/* Budget Total */}
                 <div className="flex items-center justify-between border-t-2 border-gray-200 border-dotted pt-5">
-                  <span className="text-2xl font-bold font-sora text-project-200 dark:text-white">
-                    Total: {totalPrice} €{' '}
+                  <span className="text-2xl font-bold font-sora text-project-400 dark:text-white">
+                    Total: {totalPrice}  {' € '}
                   </span>
                 </div>
               </div>
             </div>
           </div>
-          <img src={HeroImage} className="md:max-w-none" width="484" height="559" alt="Hero Images" />
+          <img src={BudgetImage} className="md:max-w-none" width="484" height="559" alt="Budget Images" />
         </div>
       </div>
 
