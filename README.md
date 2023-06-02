@@ -43,7 +43,7 @@ Conviene guardar el presupuesto total calculado en un estado.
 
 ![Ejercicio 2](./src/images/readme/ejercicio-01.png)
 
- - [ ] 📪 Entregado
+ - [x] 📬 Entregado
 
 
 #### Ejercicio 2
@@ -62,7 +62,7 @@ Al coste total de la web deberemos añadir la siguiente cantidad:
 ![Ejercicio 2](./src/images/readme/ejercicio-02.png)
 
 
- - [ ] 📪 Entregado
+- [x] 📬 Entregado
 
 
 #### **Ejercicio 3**
@@ -73,18 +73,18 @@ Para ellos, debes cambiar los ```<input type = "texto" />``` del panel por un nu
 
 ![Ejercicio 3](./src/images/readme/ejercicio-03.gif)
 
- - [ ] 📪 Entregado
+
+- [x] 📬 Entregado
 
 
 ####  **Ejercicio 4**
 
 Ya casi has completado la base del proyecto, te falta guardar los datos de los campos seleccionados por el usuario/a en localstorage.
 
-Debes usar el hook **useEffec**  para cargar los datos del **localtorage** cuando se inicie el componente.
+Debes usar el hook **useEffect**  para cargar los datos del **localtorage** cuando se inicie el componente.
 
 
-
- - [] 📪 Entregado
+ - [ ] 📪 Entregado
 
 
 #### **Ejercicio 5**
