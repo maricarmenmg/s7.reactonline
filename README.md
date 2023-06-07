@@ -84,7 +84,7 @@ Ya casi has completado la base del proyecto, te falta guardar los datos de los c
 Debes usar el hook **useEffect**  para cargar los datos del **localtorage** cuando se inicie el componente.
 
 
- - [ ] 📪 Entregado
+- [x] 📬 Entregado
 
 
 #### **Ejercicio 5**
@@ -94,7 +94,7 @@ Para terminar esta primera fase del proyecto, es necesario implementar una panta
 Es necesario que implementes la navegación entre vistas utilizando el routing de React.
 
 
- - [ ] 📪 Entregado
+- [x] 📬 Entregado
 
 ***
 
