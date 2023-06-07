@@ -1,12 +1,8 @@
-// https://www.w3schools.com/react/default.asp
-
-
-
-
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import BudgetForm from '../components/BudgetForm';
+import Projects from '../components/Projects';
+
 
 
 function Budget() {
@@ -21,7 +17,7 @@ function Budget() {
       {/*  Page content */}
       <main className="grow">
         {/*  Page sections */}
-        <BudgetForm/>
+        <Projects />
       </main>
 
       {/*  Site footer */}

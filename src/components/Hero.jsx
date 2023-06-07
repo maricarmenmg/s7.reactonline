@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 import HeroImage from '../images/hero/hero-image.png';
 
-function Hero() {
+
+     function Hero() {
   return (
-    <section className="relative">
-      {/* Bg */}
+    <section className="relative"> {/* Bg */}
       <div className="absolute inset-0 bg-project-100 pointer-events-none -z-10" aria-hidden="true" />
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="pt-32 pb-12 md:pt-60 md:pb-20 ">

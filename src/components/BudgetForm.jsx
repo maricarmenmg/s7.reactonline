@@ -11,6 +11,30 @@ function BudgetForm() {
   const [showPanel, setShowPanel] = useState(false);
 
   
+
+  // Almacenar los datos en el localStorage cuando cambien los campos
+  useEffect(() => {
+    localStorage.setItem('pages', pages.toString());
+    localStorage.setItem('languages', languages.toString());
+  }, [pages, languages]);
+
+// Cargar los datos del localStorage al iniciar el componente
+  useEffect(() => {
+    const savedPages = localStorage.getItem('pages');
+    const savedLanguages = localStorage.getItem('languages');
+
+    if (savedPages) {
+      setPages(parseInt(savedPages, 10));
+      console.log('Páginas Guardado en localStorage');
+    }
+
+    if (savedLanguages) {
+      setLanguages(parseInt(savedLanguages, 10));
+      console.log('Idiomas Guardado en localStorage');
+    }
+  }, []);
+
+
   const handleCheckboxChange = (index) => {
     const updatedServicesData = [...servicesData];
     updatedServicesData[index].checked = !updatedServicesData[index].checked;
@@ -28,6 +52,12 @@ function BudgetForm() {
   const handleLanguageChange = (value) => {
     setLanguages(value);
   };
+
+
+
+
+
+
 
   useEffect(() => {
     let total = 0;
