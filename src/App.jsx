@@ -3,10 +3,7 @@ import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Budget from './pages/Budget';
 
-
-
 import './css/style.css';
-
 
 function App() {
 

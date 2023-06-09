@@ -1,12 +1,10 @@
 import React from 'react';
 
-import { SwatchIcon,  ChartBarIcon , MegaphoneIcon} from '@heroicons/react/24/solid';
-
 const services = [
   {
     name: 'Página web',
     price: 500,
-    icon: SwatchIcon,
+    icon: 'SwatchIcon',
     checked: false,
     numberOfPages: 'Número de páginas', 
     numberOfLanguages: 'Número de idiomas',
@@ -15,14 +13,14 @@ const services = [
   {
     name: 'Campaña SEO',
     price: 300,
-    icon: ChartBarIcon,
+    icon: 'ChartBarIcon',
     checked: false,
   },
 
   {
     name: 'Campaña de publicidad',
     price: 200,
-    icon: MegaphoneIcon ,
+    icon: 'MegaphoneIcon' ,
     checked: false,
   },
 ];

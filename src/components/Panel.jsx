@@ -1,8 +1,15 @@
 import React, { useState } from 'react';
 
 function Panel({ handlePageChange, handleLanguageChange, showPanel }) {
-  const [pages, setPages] = useState(1);
-  const [languages, setLanguages] = useState(0);
+  const [pages, setPages] = useState(() => {
+    const savedPages = localStorage.getItem('pages');
+    return savedPages ? parseInt(savedPages, 10) : 1;
+  });
+
+  const [languages, setLanguages] = useState(() => {
+    const savedLanguages = localStorage.getItem('languages');
+    return savedLanguages ? parseInt(savedLanguages, 10) : 0;
+  });
 
   const handlePagesChange = (e) => {
     const value = parseInt(e.target.value, 10);
@@ -17,26 +24,38 @@ function Panel({ handlePageChange, handleLanguageChange, showPanel }) {
   };
 
   const incrementPages = () => {
-    setPages(pages + 1);
-    handlePageChange(pages + 1);
+    setPages((prevPages) => {
+      const newPages = prevPages + 1;
+      handlePageChange(newPages);
+      return newPages;
+    });
   };
 
   const decrementPages = () => {
     if (pages > 0) {
-      setPages(pages - 1);
-      handlePageChange(pages - 1);
+      setPages((prevPages) => {
+        const newPages = prevPages - 1;
+        handlePageChange(newPages);
+        return newPages;
+      });
     }
   };
 
   const incrementLanguages = () => {
-    setLanguages(languages + 1);
-    handleLanguageChange(languages + 1);
+    setLanguages((prevLanguages) => {
+      const newLanguages = prevLanguages + 1;
+      handleLanguageChange(newLanguages);
+      return newLanguages;
+    });
   };
 
   const decrementLanguages = () => {
     if (languages > 0) {
-      setLanguages(languages - 1);
-      handleLanguageChange(languages - 1);
+      setLanguages((prevLanguages) => {
+        const newLanguages = prevLanguages - 1;
+        handleLanguageChange(newLanguages);
+        return newLanguages;
+      });
     }
   };
 
@@ -87,11 +106,7 @@ function Panel({ handlePageChange, handleLanguageChange, showPanel }) {
          <button className='bg-project-100 border-4 border-project-700 font-sora font-bold text-gray-600 hover:text-gray-700 hover:bg-project-200  rounded-full h-9 w-9 cursor-pointer' onClick={decrementLanguages}>-</button>
       </div>
 
-
-      
 </div>
-
-
 
   );
 }
