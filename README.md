@@ -111,7 +111,7 @@ Tienes que crear un nuevo componente, consistente en un botón que cuando es pul
 ![Ejercicio 6](./src/images/readme/ejercicio-06.gif)
 
 
- - [ ] 📪 Entregado
+- [x] 📬 Entregado
 
 
 #### **Ejercicio 7**
