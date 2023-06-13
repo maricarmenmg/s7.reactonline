@@ -32,7 +32,7 @@ function Footer() {
           </li>
   
       </ul>
-      <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="#" className="hover:underline">@mcarmenmg</a>.</span>
+      <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="https://github.com/maricarmenmg/s7.reactonline" className="hover:underline">@mcarmenmg</a>.</span>
   </div>
 </footer>
   );

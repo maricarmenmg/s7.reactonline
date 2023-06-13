@@ -3,9 +3,9 @@ import services from '../data/services';
 import TotalCalculator from './TotalCalculator';
 import Panel from './Panel';
 import { saveToLocalStorage, loadFromLocalStorage } from '../utils/useLocalStorage';
-
 import { SwatchIcon, ChartBarIcon, MegaphoneIcon } from '@heroicons/react/24/solid';
 import BudgetImage from '../images/budget/budget-image.png';
+
 
 function renderIcon(iconName) {
   switch (iconName) {
@@ -28,7 +28,6 @@ function BudgetForm() {
   const [showPanel, setShowPanel] = useState(() => loadFromLocalStorage('showPanel', false));
 
 
-  
   const handleCheckboxChange = (index) => {
     const updatedServicesData = [...servicesData];
     updatedServicesData[index].checked = !updatedServicesData[index].checked;
@@ -63,6 +62,11 @@ function BudgetForm() {
     saveToLocalStorage('showPanel', showPanel);
   }, [showPanel]);
   
+  function openModal (name) {
+    setTitleModal(name)
+    setInfoModal(true)
+  }
+
   return (
     <div className="overflow-hidden bg-white py-24 sm:py-32 mt-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -104,7 +108,6 @@ function BudgetForm() {
 
                 {/* Budget Total */}
                 <TotalCalculator servicesData={servicesData} pages={pages} languages={languages} />
-
               </div>
             </div>
           </div>

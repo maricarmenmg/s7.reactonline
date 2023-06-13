@@ -8,6 +8,7 @@ const services = [
     checked: false,
     numberOfPages: 'Número de páginas', 
     numberOfLanguages: 'Número de idiomas',
+
   },
 
   {
