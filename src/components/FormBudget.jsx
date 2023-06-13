@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import services from '../data/services';
 import TotalCalculator from './TotalCalculator';
 import Panel from './Panel';
+import Budgets from './Budgets';
 import { saveToLocalStorage, loadFromLocalStorage } from '../utils/useLocalStorage';
 import { SwatchIcon, ChartBarIcon, MegaphoneIcon } from '@heroicons/react/24/solid';
 import BudgetImage from '../images/budget/budget-image.png';
-
 
 function renderIcon(iconName) {
   switch (iconName) {
@@ -21,12 +21,11 @@ function renderIcon(iconName) {
 }
 
 function BudgetForm() {
-
   const [servicesData, setServicesData] = useState(() => loadFromLocalStorage('servicesData', services));
   const [pages, setPages] = useState(() => loadFromLocalStorage('pages', 1));
   const [languages, setLanguages] = useState(() => loadFromLocalStorage('languages', 0));
   const [showPanel, setShowPanel] = useState(() => loadFromLocalStorage('showPanel', false));
-
+  const [presupuestos, setPresupuestos] = useState([]);
 
   const handleCheckboxChange = (index) => {
     const updatedServicesData = [...servicesData];
@@ -49,23 +48,30 @@ function BudgetForm() {
   useEffect(() => {
     saveToLocalStorage('servicesData', servicesData);
   }, [servicesData]);
-  
+
   useEffect(() => {
     saveToLocalStorage('pages', pages);
   }, [pages]);
-  
+
   useEffect(() => {
     saveToLocalStorage('languages', languages);
   }, [languages]);
-  
+
   useEffect(() => {
     saveToLocalStorage('showPanel', showPanel);
   }, [showPanel]);
-  
-  function openModal (name) {
-    setTitleModal(name)
-    setInfoModal(true)
-  }
+
+  const handleGeneratePresupuesto = (nombre, cliente, servicio, precioTotal) => {
+    const fecha = new Date();
+    const nuevoPresupuesto = {
+      nombre,
+      cliente,
+      servicio,
+      precioTotal,
+      fecha,
+    };
+    setPresupuestos((prevPresupuestos) => [...prevPresupuestos, nuevoPresupuesto]);
+  };
 
   return (
     <div className="overflow-hidden bg-white py-24 sm:py-32 mt-20">
@@ -80,7 +86,6 @@ function BudgetForm() {
                 No dudes en ponerte en contacto con nosotros hoy mismo para explorar cómo podemos ayudarte a llevar tu
                 presencia online al siguiente nivel!
               </p>
-
 
               {/* Budget Form */}
               <div className="p-6 mt-10 max-w-xl space-y-8 text-xl leading-7 text-gray-600 lg:max-w-none bg-white border border-gray-200 rounded-lg shadow">
@@ -99,22 +104,22 @@ function BudgetForm() {
                   </div>
                 ))}
 
-               {/* Budget Panel Pages - Languages */}
+                {/* Budget Panel Pages - Languages */}
                 <Panel
-                 handlePageChange={handlePageChange}
-                 handleLanguageChange={handleLanguageChange} 
-                 showPanel={showPanel}
-                 />
-
+                  handlePageChange={handlePageChange}
+                  handleLanguageChange={handleLanguageChange}
+                  showPanel={showPanel}
+                />
                 {/* Budget Total */}
                 <TotalCalculator servicesData={servicesData} pages={pages} languages={languages} />
               </div>
             </div>
           </div>
+          {/* Budget List */}
+          <Budgets presupuestos={presupuestos} handleGeneratePresupuesto={handleGeneratePresupuesto} />
           <img src={BudgetImage} className="md:max-w-none" width="484" height="559" alt="Budget Images" />
         </div>
       </div>
-
     </div>
   );
 }

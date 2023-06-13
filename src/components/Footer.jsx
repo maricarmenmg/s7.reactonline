@@ -22,13 +22,13 @@ function Footer() {
 
           </li>
           <li>
-              <a href="#" className="mr-4 hover:underline md:mr-6">Premium</a>
+              <a href="/projects" className="mr-4 hover:underline md:mr-6">Proyectos</a>
           </li>
           <li>
-              <a href="#" className="mr-4 hover:underline md:mr-6 ">Campaigns</a>
+              <a href="/contacto" className="mr-4 hover:underline md:mr-6 ">Contacto</a>
           </li>
           <li>
-              <a href="#" className="mr-4 hover:underline md:mr-6">Blog</a>
+              <a href="https://medium.com/" className="mr-4 hover:underline md:mr-6">Blog</a>
           </li>
   
       </ul>

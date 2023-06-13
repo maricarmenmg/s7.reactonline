@@ -35,7 +35,7 @@ function Header() {
                 </Link>
               </li>
               <li className="ml-3">
-                <Link className="btn-sm font-sora text-project-400 bg-project-300 border border-project-300 hover:bg-project-100  hover:border-project-500 w-full " to="/">
+                <Link className="btn-sm font-sora text-project-400 bg-project-300 border border-project-300 hover:bg-project-100  hover:border-project-800 w-full " to="/contacto">
                   ¿Trabajamos juntos?
                 </Link>
               </li>
