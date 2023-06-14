@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Header() {
+export default function Header() {
   return (
     
     <header className="absolute w-full z-30">
@@ -35,7 +35,7 @@ function Header() {
                 </Link>
               </li>
               <li className="ml-3">
-                <Link className="btn-sm font-sora text-project-400 bg-project-300 border border-project-300 hover:bg-project-100  hover:border-project-800 w-full " to="/contacto">
+                <Link className="btn-sm font-sora text-project-400 bg-project-300 border border-project-300 hover:bg-project-100  hover:border-project-800 w-full " to="*">
                   ¿Trabajamos juntos?
                 </Link>
               </li>
@@ -47,4 +47,4 @@ function Header() {
   );
 }
 
-export default Header;
+

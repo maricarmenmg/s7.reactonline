@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import HeroImage from '../images/hero/hero-image.png';
 
 
-     function Hero() {
+  export default function Hero() {
+    
   return (
     <section className="relative"> {/* Bg */}
       <div className="absolute inset-0 bg-project-100 pointer-events-none -z-10" aria-hidden="true" />
@@ -51,4 +52,4 @@ import HeroImage from '../images/hero/hero-image.png';
   );
 }
 
-export default Hero;
+

@@ -25,7 +25,7 @@ function Footer() {
               <a href="/projects" className="mr-4 hover:underline md:mr-6">Proyectos</a>
           </li>
           <li>
-              <a href="/contacto" className="mr-4 hover:underline md:mr-6 ">Contacto</a>
+              <a href="*" className="mr-4 hover:underline md:mr-6 ">Contacto</a>
           </li>
           <li>
               <a href="https://medium.com/" className="mr-4 hover:underline md:mr-6">Blog</a>

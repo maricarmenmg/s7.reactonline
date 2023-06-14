@@ -169,6 +169,9 @@ export default {
       zIndex: {
         '-1': '-1',
       },
+      aspectRatio: {
+        '4/3': '4 / 3',
+      },
     },
   },
   plugins: [

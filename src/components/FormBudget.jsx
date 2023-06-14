@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import services from '../data/services';
 import TotalCalculator from './TotalCalculator';
 import Panel from './Panel';
-import Budgets from './Budgets';
+import BudgetsList from './BudgetsList';
 import { saveToLocalStorage, loadFromLocalStorage } from '../utils/useLocalStorage';
 import { SwatchIcon, ChartBarIcon, MegaphoneIcon } from '@heroicons/react/24/solid';
 import BudgetImage from '../images/budget/budget-image.png';
@@ -20,12 +20,16 @@ function renderIcon(iconName) {
   }
 }
 
-function BudgetForm() {
+function FormBudget() {
   const [servicesData, setServicesData] = useState(() => loadFromLocalStorage('servicesData', services));
   const [pages, setPages] = useState(() => loadFromLocalStorage('pages', 1));
   const [languages, setLanguages] = useState(() => loadFromLocalStorage('languages', 0));
   const [showPanel, setShowPanel] = useState(() => loadFromLocalStorage('showPanel', false));
-  const [presupuestos, setPresupuestos] = useState([]);
+  const [budgetList, setBudgetList] = useState([]);
+  const [budgetName, setBudgetName] = useState('');
+  const [clientName, setClientName] = useState('');
+  const [totalPrice, setTotalPrice] = useState('');
+
 
   const handleCheckboxChange = (index) => {
     const updatedServicesData = [...servicesData];
@@ -61,17 +65,28 @@ function BudgetForm() {
     saveToLocalStorage('showPanel', showPanel);
   }, [showPanel]);
 
-  const handleGeneratePresupuesto = (nombre, cliente, servicio, precioTotal) => {
+  const handleTotalPriceChange = (totalPrice) => {
+    setTotalPrice(totalPrice);
+  };
+
+  const handleGenerateBudget = (nombre, cliente, servicio, precioTotal) => {
     const fecha = new Date();
     const nuevoPresupuesto = {
-      nombre,
-      cliente,
-      servicio,
-      precioTotal,
-      fecha,
+      budgetName: nombre,
+      clientName: cliente,
+      service: servicio.name,
+      total: precioTotal,
+      date: fecha,
     };
-    setPresupuestos((prevPresupuestos) => [...prevPresupuestos, nuevoPresupuesto]);
+    setBudgetList((prevBudgets) => [...prevBudgets, nuevoPresupuesto]);
+  
+  
+    // Limpiar los campos después de generar el presupuesto
+    setBudgetName('');
+    setClientName('');
+    setTotalPrice('');
   };
+
 
   return (
     <div className="overflow-hidden bg-white py-24 sm:py-32 mt-20">
@@ -111,12 +126,55 @@ function BudgetForm() {
                   showPanel={showPanel}
                 />
                 {/* Budget Total */}
-                <TotalCalculator servicesData={servicesData} pages={pages} languages={languages} />
+                <TotalCalculator
+                servicesData={servicesData}
+                pages={pages}
+                languages={languages}
+                onTotalPriceChange={handleTotalPriceChange}
+                />
+
+                {/* Budget Name */}
+                <div>
+                  <label htmlFor="budgetName" className="block text-lg font-sora font-semibold text-gray-900">
+                    Nombre del presupuesto:
+                  </label>
+                  <input
+                    id="budgetName"
+                    type="text"
+                    value={budgetName}
+                    onChange={(e) => setBudgetName(e.target.value)}
+                    className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                  />
+                </div>
+
+                {/* Client Name */}
+                <div>
+                  <label htmlFor="clientName" className="block text-lg font-sora font-semibold text-gray-900">
+                    Nombre del cliente:
+                  </label>
+                  <input
+                    id="clientName"
+                    type="text"
+                    value={clientName}
+                    onChange={(e) => setClientName(e.target.value)}
+                    className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+                  />
+                </div>
+
+                {/* Generate Budget Button */}
+                <button
+        className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+        onClick={handleGenerateBudget}
+      >
+                  Generar presupuesto
+                </button>
               </div>
             </div>
           </div>
           {/* Budget List */}
-          <Budgets presupuestos={presupuestos} handleGeneratePresupuesto={handleGeneratePresupuesto} />
+          <div>
+          <BudgetsList budgetList={budgetList} />
+          </div>
           <img src={BudgetImage} className="md:max-w-none" width="484" height="559" alt="Budget Images" />
         </div>
       </div>
@@ -124,4 +182,4 @@ function BudgetForm() {
   );
 }
 
-export default BudgetForm;
+export default FormBudget;

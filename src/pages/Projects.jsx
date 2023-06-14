@@ -7,7 +7,6 @@ import Projects from '../components/Projects';
 
 function Budget() {
 
-  
   return (
 
     <div className="flex flex-col min-h-screen overflow-hidden">

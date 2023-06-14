@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Modal from './elements/Modal';
 import { InformationCircleIcon, SwatchIcon, LanguageIcon } from "@heroicons/react/24/solid";
 
+
 function Panel({ handlePageChange, handleLanguageChange, showPanel }) {
   const [pages, setPages] = useState(() => {
     const savedPages = localStorage.getItem('pages');
@@ -79,6 +80,7 @@ function Panel({ handlePageChange, handleLanguageChange, showPanel }) {
   const handleCloseLanguagesModal = () => {
     setShowLanguagesModal(false);
   };
+
 
   if (!showPanel) {
     return null;
