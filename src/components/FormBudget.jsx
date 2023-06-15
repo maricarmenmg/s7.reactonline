@@ -4,17 +4,19 @@ import TotalCalculator from './TotalCalculator';
 import Panel from './Panel';
 import BudgetsList from './BudgetsList';
 import { saveToLocalStorage, loadFromLocalStorage } from '../utils/useLocalStorage';
-import { SwatchIcon, ChartBarIcon, MegaphoneIcon } from '@heroicons/react/24/solid';
+import { SwatchIcon, ChartBarIcon, MegaphoneIcon, PlusCircleIcon  } from '@heroicons/react/24/solid';
 import BudgetImage from '../images/budget/budget-image.png';
 
 function renderIcon(iconName) {
   switch (iconName) {
     case 'SwatchIcon':
-      return <SwatchIcon className="h-5 w-5 text-indigo-600" aria-hidden="true" />;
+      return <SwatchIcon className="h-5 w-5 text-project-500" aria-hidden="true" />;
     case 'ChartBarIcon':
-      return <ChartBarIcon className="h-5 w-5 text-indigo-600" aria-hidden="true" />;
+      return <ChartBarIcon className="h-5 w-5 text-project-500" aria-hidden="true" />;
     case 'MegaphoneIcon':
-      return <MegaphoneIcon className="h-5 w-5 text-indigo-600" aria-hidden="true" />;
+      return <MegaphoneIcon className="h-5 w-5 text-project-500" aria-hidden="true" />;
+    case 'PlusCircleIcon':
+      return <PlusCircleIcon className="h-5 w-5 text-project-500" aria-hidden="true" />;
     default:
       return null;
   }
@@ -25,12 +27,13 @@ function FormBudget() {
   const [pages, setPages] = useState(() => loadFromLocalStorage('pages', 1));
   const [languages, setLanguages] = useState(() => loadFromLocalStorage('languages', 0));
   const [showPanel, setShowPanel] = useState(() => loadFromLocalStorage('showPanel', false));
+  const [selectedServices, setSelectedServices] = useState([]);
   const [budgetList, setBudgetList] = useState([]);
   const [budgetName, setBudgetName] = useState('');
   const [clientName, setClientName] = useState('');
   const [totalPrice, setTotalPrice] = useState('');
-
-
+  const [showImage, setShowImage] = useState(true);
+ 
   const handleCheckboxChange = (index) => {
     const updatedServicesData = [...servicesData];
     updatedServicesData[index].checked = !updatedServicesData[index].checked;
@@ -39,8 +42,12 @@ function FormBudget() {
     if (updatedServicesData[index].name === 'Página web') {
       setShowPanel(updatedServicesData[index].checked);
     }
+
+    const selectedServices = updatedServicesData.filter(service => service.checked);
+    setSelectedServices(selectedServices);
   };
 
+ 
   const handlePageChange = (value) => {
     setPages(value);
   };
@@ -48,6 +55,7 @@ function FormBudget() {
   const handleLanguageChange = (value) => {
     setLanguages(value);
   };
+
 
   useEffect(() => {
     saveToLocalStorage('servicesData', servicesData);
@@ -65,29 +73,42 @@ function FormBudget() {
     saveToLocalStorage('showPanel', showPanel);
   }, [showPanel]);
 
+  useEffect(() => {
+    saveToLocalStorage('selectedServices', selectedServices);
+  }, [selectedServices]);
+
+  useEffect(() => {
+    const selectedServices = servicesData.filter(service => service.checked);
+    setSelectedServices(selectedServices);
+  }, [servicesData]);
+
+
   const handleTotalPriceChange = (totalPrice) => {
     setTotalPrice(totalPrice);
   };
-
-  const handleGenerateBudget = (nombre, cliente, servicio, precioTotal) => {
+  
+  const handleGenerateBudget = (budgetName, clientName, selectedServices, totalPrice) => {
     const fecha = new Date();
     const nuevoPresupuesto = {
-      budgetName: nombre,
-      clientName: cliente,
-      service: servicio.name,
-      total: precioTotal,
+      budgetName: budgetName,
+      clientName: clientName,
+      services: selectedServices,
+      pages: pages,
+      languages: languages,
+      totalPrice: totalPrice,
       date: fecha,
     };
+  
     setBudgetList((prevBudgets) => [...prevBudgets, nuevoPresupuesto]);
   
-  
-    // Limpiar los campos después de generar el presupuesto
     setBudgetName('');
     setClientName('');
-    setTotalPrice('');
-  };
-
-
+    setTotalPrice(0);
+  
+    setShowImage(false);
+   };
+  
+  
   return (
     <div className="overflow-hidden bg-white py-24 sm:py-32 mt-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -127,12 +148,11 @@ function FormBudget() {
                 />
                 {/* Budget Total */}
                 <TotalCalculator
-                servicesData={servicesData}
-                pages={pages}
-                languages={languages}
-                onTotalPriceChange={handleTotalPriceChange}
+                  servicesData={servicesData}
+                  pages={pages}
+                  languages={languages}
+                  onTotalPriceChange={setTotalPrice}
                 />
-
                 {/* Budget Name */}
                 <div>
                   <label htmlFor="budgetName" className="block text-lg font-sora font-semibold text-gray-900">
@@ -163,19 +183,22 @@ function FormBudget() {
 
                 {/* Generate Budget Button */}
                 <button
-        className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-        onClick={handleGenerateBudget}
-      >
-                  Generar presupuesto
+                  className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium  font-sora rounded-md text-white bg-project-500 hover:bg-project-900 hover:border border-3 border-project-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  onClick={() =>
+                    handleGenerateBudget(budgetName, clientName, selectedServices, totalPrice)
+                  }
+                >
+                  <PlusCircleIcon className="h-5 w-5 text-gray-100  mr-3" aria-hidden="true" /> Guardar Presupuesto
                 </button>
               </div>
             </div>
           </div>
-          {/* Budget List */}
           <div>
-          <BudgetsList budgetList={budgetList} />
+            {/* Show/hide the image */}
+            {showImage && <img src={BudgetImage} className="md:max-w-none" width="484" height="559" alt="Budget Images" />}
+            {/* Budget list */}
+            {budgetList.length > 0 && <BudgetsList budgetList={budgetList} />}
           </div>
-          <img src={BudgetImage} className="md:max-w-none" width="484" height="559" alt="Budget Images" />
         </div>
       </div>
     </div>
