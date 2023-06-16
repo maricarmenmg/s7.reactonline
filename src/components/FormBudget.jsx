@@ -89,6 +89,11 @@ function FormBudget() {
   
   const handleGenerateBudget = (budgetName, clientName, selectedServices, totalPrice) => {
     const fecha = new Date();
+    const day = fecha.getDate();
+    const month = fecha.getMonth() + 1; 
+    const year = fecha.getFullYear();
+    const budgetDate = `${day}/${month}/${year}`;
+
     const nuevoPresupuesto = {
       budgetName: budgetName,
       clientName: clientName,
@@ -96,7 +101,7 @@ function FormBudget() {
       pages: pages,
       languages: languages,
       totalPrice: totalPrice,
-      date: fecha,
+      date: budgetDate,
     };
   
     setBudgetList((prevBudgets) => [...prevBudgets, nuevoPresupuesto]);
@@ -183,7 +188,7 @@ function FormBudget() {
 
                 {/* Generate Budget Button */}
                 <button
-                  className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium  font-sora rounded-md text-white bg-project-500 hover:bg-project-900 hover:border border-3 border-project-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium font-sora  rounded-full  text-white bg-project-500 hover:bg-project-900 hover:border border-3 border-project-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                   onClick={() =>
                     handleGenerateBudget(budgetName, clientName, selectedServices, totalPrice)
                   }

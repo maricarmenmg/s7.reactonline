@@ -24,11 +24,7 @@ import HeroImage from '../images/hero/hero-image.png';
               Nuestro objetivo es ayudarte a construir una presencia digital efectiva para tu negocio.
               </p>
               {/* Buttons */}
-              <div
-                className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4 mb-12 md:mb-20"
-                data-aos="fade-right"
-                data-aos-delay="300"
-              >
+              <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center md:justify-start space-y-4 sm:space-y-0 sm:space-x-4 mb-12 md:mb-20">
                 <div>
                   <Link className="btn text-white bg-project-500 hover:bg-blue-600 w-full shadow-sm" to="/budget">
                     Solicita tu presupuesto
