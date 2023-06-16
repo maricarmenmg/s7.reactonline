@@ -20,7 +20,7 @@ import HeroImage from '../images/hero/hero-image.png';
               ¿Listo para comenzar un proyecto.{' 🚀 '}
 
               </h1>
-              <p className="text-xl text-gray-500 mb-10" data-aos="fade-right" data-aos-delay="200">
+              <p className="text-xl text-gray-600 mb-10" data-aos="fade-right" data-aos-delay="200">
               Nuestro objetivo es ayudarte a construir una presencia digital efectiva para tu negocio.
               </p>
               {/* Buttons */}

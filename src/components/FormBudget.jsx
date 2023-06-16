@@ -195,7 +195,7 @@ function FormBudget() {
           </div>
           <div>
             {/* Show/hide the image */}
-            {showImage && <img src={BudgetImage} className="md:max-w-none" width="484" height="559" alt="Budget Images" />}
+            {showImage && <img src={BudgetImage} className="md:max-w-none mt-60 ml-30 " width="484" height="559" alt="Budget Images" />}
             {/* Budget list */}
             {budgetList.length > 0 && <BudgetsList budgetList={budgetList} />}
           </div>
