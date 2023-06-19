@@ -1,13 +1,13 @@
 import React from 'react';
-import { FunnelIcon , BarsArrowUpIcon, CalendarDaysIcon, ArrowPathIcon  } from '@heroicons/react/24/solid';
+import { BarsArrowUpIcon, CalendarDaysIcon, ArrowPathIcon  } from '@heroicons/react/24/solid';
 
 const SortAlphabeticallyButton = ({ onClick }) => {
   return (
     <button
-      className="font-sora text-sm flex items-center space-x-1 px-3 py-2 border border-gray-300 rounded-md bg-white text-sm text-gray-700 hover:bg-gray-100"
+      className="font-sora text-sm flex items-center space-x-1 px-3 py-2 border border-gray-300 rounded-full bg-white  text-gray-700 hover:bg-gray-100"
       onClick={onClick}
     >
-      <BarsArrowUpIcon  className="h-4 w-4" />
+      <BarsArrowUpIcon  className="h-5 w-5" />
       <span>Ordenar alfabéticamente</span>
     </button>
   );
@@ -16,10 +16,10 @@ const SortAlphabeticallyButton = ({ onClick }) => {
 const SortByDateButton = ({ onClick }) => {
   return (
     <button
-      className="flex items-center space-x-1 px-3 py-2 border border-gray-300 rounded-md bg-white text-sm text-gray-700 hover:bg-gray-100"
+      className="font-sora text-sm flex items-center space-x-1 px-3 py-2 border border-gray-300 rounded-full bg-white text-sm text-gray-700 hover:bg-gray-100"
       onClick={onClick}
     >
-      <CalendarDaysIcon className="h-4 w-4" />
+      <CalendarDaysIcon className="h-5 w-5" />
       <span>Ordenar por fecha</span>
     </button>
   );
@@ -28,10 +28,10 @@ const SortByDateButton = ({ onClick }) => {
 const ResetOrderButton = ({ onClick }) => {
   return (
     <button
-      className="flex items-center space-x-1 px-3 py-2 border border-gray-300 rounded-md bg-white text-sm text-gray-700 hover:bg-gray-100"
+      className="font-sora text-sm flex items-center space-x-1 px-3 py-2 border border-gray-300 rounded-full bg-white text-sm text-gray-700 hover:bg-gray-100"
       onClick={onClick}
     >
-      <ArrowPathIcon  className="h-4 w-4" />
+      <ArrowPathIcon  className="h-5 w-5" />
       <span>Reiniciar orden</span>
     </button>
   );

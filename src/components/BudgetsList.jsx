@@ -26,7 +26,7 @@ const BudgetsList = ({ budgetList }) => {
       )}
 
       {/* Botones de ordenamiento */}
-      <div className="flex justify-end space-x-4 mb-4">
+      <div className="flex justify-start space-x-3 mb-4 mt-7">
         <SortAlphabeticallyButton onClick={handleSortByName} />
         <SortByDateButton onClick={handleSortByDate} />
         <ResetOrderButton onClick={handleResetOrder} />
